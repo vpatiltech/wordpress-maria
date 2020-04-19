@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  mydb:
+    image: mariadb:latest 
+    volumes: 
+      - db_storage:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: vvp
+      MYSQL_PASSWORD: vvp
+      MYSQL_DATABASE: vvp_db
+      
+  wp:
+    image: wordpress:5.1.1-php7.3-apache
+    restart: always
+    depends_on:
+      - mydb
+    ports:
+      - 8081:80
+    environment:
+      WORDPRESS_DB_HOST: mydb
+      WORDPRESS_DB_USER: vvp
+      WORDPRESS_DB_PASSWORD: vvp
+      WORDPRESS_DB_NAME: vvp_db
+    volumes:
+      - wp_storage:/var/www/html
+            
+volumes:
+   db_storage:
+   wp_storage:
+      
+      
+    
+    
