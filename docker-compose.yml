@@ -15,12 +15,12 @@ services:
       MYSQL_DATABASE: vvp_db
       
   wp:
-    image: wordpress:5.1.1-php7.3-apache
+    image: wordpress:latest
     networks:
       - my-bridge
     restart: always
     ports:
-      - 8081:80
+      - 8080:80
     environment:
       WORDPRESS_DB_HOST: mydb
       WORDPRESS_DB_USER: vvp
