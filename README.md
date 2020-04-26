@@ -17,4 +17,4 @@ git clone https://github.com/vpatiltech/wordpress-maria.git
 cd wordpress-maria
 ```
 
-![](screenshots/image.png)
+![](screenshots/1.jpeg)
